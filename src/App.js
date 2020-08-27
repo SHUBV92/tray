@@ -1,18 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// Packages
+import React from "react";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from "react-router-dom";
+
+import { baseRoutes } from "./constants/routes";
+
 
 // Components
-import User from "./containers/user/User.jsx"
-import Navbar from './containers/navbar/Navbar';
+import User from "./containers/user/User.jsx";
+import Navbar from "./containers/navbar/Navbar";
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <Navbar />
-      <User />      
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Switch>
+          {baseRoutes.map(route =>(
+          <Route path={route.path}>
+            {route.component}
+          </Route>
+          ))}
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

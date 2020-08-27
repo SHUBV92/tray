@@ -1,13 +1,18 @@
 import React from "react";
 import { Container, NavLinks } from "./Navbar.styles.jsx";
+import { NavLink } from "react-router-dom";
+
 
 const Navbar = () => {
   return (
     <Container>
       <NavLinks>
-        <h1>User</h1>
-        <h1>Privacy</h1>
-        <h1>Done</h1>
+          <NavLink
+          >
+        <a href="/user">User</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/done">Done</a>
+        </NavLink>
       </NavLinks>
     </Container>
   );

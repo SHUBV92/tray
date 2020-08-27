@@ -1,12 +1,15 @@
-import react from "react"
+import React from "react";
 
 const Done = () => {
-return (
+  return (
     <div>
-        <h3>Please Verify your email address, you should have recieved an email from us already!</h3>
+      <h3>
+        Please Verify your email address, you
+        should have recieved an email from us
+        already!
+      </h3>
     </div>
-)
+  );
+};
 
-}
-
-
+export default Done;
