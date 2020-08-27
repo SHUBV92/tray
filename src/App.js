@@ -10,7 +10,6 @@ import {
 
 import { baseRoutes } from "./constants/routes";
 
-
 // Components
 import User from "./containers/user/User.jsx";
 import Navbar from "./containers/navbar/Navbar";

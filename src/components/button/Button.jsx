@@ -1,13 +1,10 @@
-import React from "react"
+import React from "react";
 
-
-const Button = (props) => { 
-return (
+const Button = (props) => {
+  return (
     <div>
-        <button>{props.label}</button>
+      <button>{props.label}</button>
     </div>
-)
-
-}
-
-export default Button; 
+  );
+};
+export default Button;

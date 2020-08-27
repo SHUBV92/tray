@@ -7,8 +7,11 @@ padding-left: 200px;
 border-radius: 40px;
 `
 export const NavLinks = styled.div`
-h1{
-    display: inline-block;
-    padding: 30px;
+    padding: 10px;
+
+a{
+    display: inline;
+    /* border-style: solid; */
+    pading: 10px;
 }
 `
