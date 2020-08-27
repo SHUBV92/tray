@@ -9,6 +9,7 @@ const Done = () => {
         should have recieved an email from us
         already!
       </h3>
+      {/* {console.log(FinalData)} */}
     </Container>
   );
 };
