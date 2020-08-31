@@ -1,7 +1,7 @@
 import React from "react";
-import {Container} from "./Done.styles.jsx"
+import { Container } from "./Done.styles.jsx";
 
-const Done = () => {
+const Done = (props) => {
   return (
     <Container>
       <h3>
@@ -9,7 +9,8 @@ const Done = () => {
         should have recieved an email from us
         already!
       </h3>
-      {/* {console.log(FinalData)} */}
+      {/* Pull Data from Redux Store */}
+      {console.log(props.userDetails)}
     </Container>
   );
 };

@@ -1,9 +1,21 @@
 import React from "react";
 
 const Button = (props) => {
+  const {getUserDetails, submitUserDetails} = props
   return (
     <div>
-      <button>{props.label}</button>
+      <button
+        onClick={() => {
+          {
+            return getUserDetails;
+          }
+          // {
+          //   return submitUserDetails;
+          // }
+        }}
+      >
+        {props.label}
+      </button>
     </div>
   );
 };

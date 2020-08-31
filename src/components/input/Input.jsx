@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import Button from "../button/Button";
+import { Container } from "./input.styles";
 
 const Input = (props) => {
+  
   return (
-    <div>
+    <Container>
       {props.input.map((input) => (
         <input
           type={input.type}
           placeholder={input.placeholder}
+          onChange={input.onChange}
         />
       ))}
-    </div>
+      <Button
+        label="Submit"
+        getUserDetails={props.getUserDetails}
+        submitUserDetails={props.submitUserDetails}
+      />
+    </Container>
   );
 };
 
