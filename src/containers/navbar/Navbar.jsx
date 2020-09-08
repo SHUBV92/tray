@@ -16,11 +16,17 @@ const Navbar = () => {
             activeStyle={{
               fontWeight: "bold",
               borderBottom: "4px solid white",
+              background: "lightblue",
+              padding: "13px",
+              paddingLeft: "60px",
+              paddingRight: "60px",
+              transition: "0.5s",
+              textDecoration: "none",
+              borderRadius: "10px"
+
             }}
             style={{
-              textDecoration: "none",
               color: "black",
-              background: "white"
             }}
           >
             <a href={route.path}>{route.name}</a>

@@ -3,12 +3,18 @@ import styled from "styled-components";
 export const Container = styled.div`
   padding: 10%;
   padding-left: 20%;
-  padding input {
+  padding-top: 10%;
+
+  input {
+    border-radius: 30px;
     align-items: center;
-    padding: 5%;
+    padding: 10px;
     padding-left: 10%;
-    padding-top: 10%;
-    border-radius: 20%;
+  }
+
+  .required:after {
+    content: " *";
+    color: red;
   }
 
   @media only screen and (min-width: 600px) {

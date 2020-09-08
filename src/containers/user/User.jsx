@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 // Components
 import Input from "../../components/input/Input";
+import { Container } from "./User.styles";
 
 const User = (props) => {
-
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
@@ -15,17 +15,14 @@ const User = (props) => {
 
   const handleName = (event) => {
     setName(event.target.value);
-    console.log("name", name);
   };
 
   const handleRole = (event) => {
     setRole(event.target.value);
-    console.log("role", role);
   };
 
   const handleEmail = (event) => {
     setEmail(event.target.value);
-    console.log("email", email);
   };
 
   const handlePassword = (event) => {
@@ -38,16 +35,10 @@ const User = (props) => {
       role: role,
       email: email,
       password: password,
-    })
-    
-
-    console.log("userDetails", userDetails);
+    });
   };
 
-
-  console.log("userDetails", userDetails);
-
-  // console.log("UserDetails", userDetails);
+  console.log("userdetails", userDetails);
 
   const input = [
     {
@@ -55,33 +46,48 @@ const User = (props) => {
       placeholder: "Name",
       required: "required",
       onChange: handleName,
+      label: "Name",
+      required: true,
     },
     {
       type: "text",
       placeholder: "role",
       onChange: handleRole,
+      label: "Role",
+      required: true,
     },
     {
       type: "email",
       placeholder: "Email",
       onChange: handleEmail,
+      label: "Email",
+      required: true,
     },
     {
       type: "password",
       placeholder: "Password",
       onChange: handlePassword,
+      label: "Password",
     },
   ];
 
   return (
-    <div>
+    <Container>
       <Input
         input={input}
-        getUserDetails={getUserDetails}
-        submitUserDetails={props.submitUserDetails}
+        name={name}
+        onClicked={getUserDetails}
+        submitUserDetails={
+          props.submitUserDetails
+        }
+        route="/privacy"
       />
-    </div>
+    </Container>
   );
 };
 
 export default User;
+
+// if Name, Email & Password field are empty then do
+// not  move to the next page once submit has been clicked
+// if( Name && Email && Password === "") { Button }

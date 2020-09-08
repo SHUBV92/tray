@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { simpleAction } from "./actions/simpleAction";
+import { useHistory } from "react-router-dom"
 
 import {
   BrowserRouter as Router,
@@ -18,7 +19,15 @@ import Navbar from "./containers/navbar/Navbar";
 import Done from "./containers/done/Done.jsx";
 
 const App = (props) => {
-  const [details, setUserDetails] = useState("");
+  const [userDetails, setUserDetails] = useState("");
+
+  const history = useHistory()
+  console.log("history", history)
+
+  const routeChange = () => {
+    let path = `newPath`
+    history.push(path)
+  }
 
   const simpleAction = (event) => {
     props.simpleAction();
@@ -37,7 +46,7 @@ const App = (props) => {
             return (
               <Route path={route.path}>
                 {route.name === "Done" ? (
-                  <Done userDetails={details} />
+                  <Done userDetails={userDetails} />
                 ) : route.name === "User" ? (
                   <User submitUserDetails={submitUserDetails}/>
                 ) : (
@@ -47,6 +56,11 @@ const App = (props) => {
             );
           })}
         </Switch>
+        <button onClick={routeChange}
+        // ={() => {
+        //   history.goBack()
+        // }}
+        >next</button>
         <button onClick={simpleAction}>
           Test Redux Action
         </button>
@@ -55,15 +69,22 @@ const App = (props) => {
     </Router>
   );
 };
-const mapStateToProps = (state) => ({
-  ...state,
-});
+
+
+const mapStateToProps = (state) => {
+  console.log("state", state)
+
+  return ({
+    userDetails: state.userDetails 
+  })
+}
 
 const mapDispatchToProps = (dispatch) => ({
-  simpleAction: () => dispatch(simpleAction()),
+  simpleAction: (userDetails) => dispatch(simpleAction(userDetails)),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(App);
+

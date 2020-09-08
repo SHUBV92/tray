@@ -1,17 +1,21 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Container = styled.div`
-background-color: lightblue;
-padding: 20px;
-padding-left: 200px;
-border-radius: 40px;
-`
+  position: sticky;
+  width: 100%;
+  /* background-color: lightblue; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  padding: 20px;
+`;
 export const NavLinks = styled.div`
-    padding: 10px;
+  display: inline;
+  padding: 17px;
+  padding-left: 50px;
+  padding-right: 40px;
+  border-style: solid;
 
-a{
-    display: inline;
-    /* border-style: solid; */
-    pading: 10px;
-}
-`
+  .active {
+    pointer-events: none;
+    cursor: default;
+  }
+`;
