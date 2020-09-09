@@ -22,16 +22,11 @@ const Navbar = () => {
               paddingRight: "60px",
               transition: "0.5s",
               textDecoration: "none",
-              borderRadius: "10px"
-
-            }}
-            style={{
-              color: "black",
+              borderRadius: "10px",
             }}
           >
-            <a href={route.path}>{route.name}</a>
-            {/* <a href="/privacy">Privacy</a>
-            <a href="/done">Done</a> */}
+            {route.name}
+            {/* <a href={route.path}></a> */}
           </NavLink>
         </NavLinks>
       ))}

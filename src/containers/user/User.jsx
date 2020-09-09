@@ -1,72 +1,60 @@
 // Packages
 import React, { useState } from "react";
+import Button from "../../components/Button/Button.jsx";
+
+import { submitUserDetails } from "../../store/actions.js";
+
 // Components
-import Input from "../../components/input/Input";
+import Input from "../../components/Input/Input";
 import { Container } from "./User.styles";
+import { connect } from "react-redux";
 
 const User = (props) => {
-  const [name, setName] = useState("");
-  const [role, setRole] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [userDetails, setUserDetails] = useState(
-    {}
-  );
+  const [userDetails, getUserDetails] = useState({
+    name: "",
+    role: "",
+    email: "",
+    password: "",
+  });
 
-  const handleName = (event) => {
-    setName(event.target.value);
-  };
+  console.log("props", props);
+  console.log("User", userDetails)
 
-  const handleRole = (event) => {
-    setRole(event.target.value);
-  };
+  const handleChange = (event) => {
+    const { id, value } = event.target;
 
-  const handleEmail = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePassword = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const getUserDetails = () => {
-    setUserDetails({
-      name: name,
-      role: role,
-      email: email,
-      password: password,
+    getUserDetails({
+      ...userDetails,
+      [id]: value,
     });
   };
-
-  console.log("userdetails", userDetails);
 
   const input = [
     {
       type: "text",
+      id: "name",
       placeholder: "Name",
-      required: "required",
-      onChange: handleName,
       label: "Name",
       required: true,
     },
     {
       type: "text",
+      id: "role",
       placeholder: "role",
-      onChange: handleRole,
       label: "Role",
       required: true,
     },
     {
       type: "email",
+      id: "email",
       placeholder: "Email",
-      onChange: handleEmail,
       label: "Email",
       required: true,
     },
     {
       type: "password",
+      id: "password",
       placeholder: "Password",
-      onChange: handlePassword,
       label: "Password",
     },
   ];
@@ -75,18 +63,34 @@ const User = (props) => {
     <Container>
       <Input
         input={input}
-        name={name}
-        onClicked={getUserDetails}
-        submitUserDetails={
-          props.submitUserDetails
+        onChange={handleChange}
+      />
+
+      <Button
+        label="Submit"
+        submit={() =>
+          submitUserDetails(userDetails)
         }
+        userDetails={userDetails}
         route="/privacy"
       />
     </Container>
   );
 };
 
-export default User;
+const mapStateToProps = (state) => ({
+  userDetails: state.userDetails,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  submitUserDetails: (userDetails) =>
+    dispatch(submitUserDetails(userDetails)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(User);
 
 // if Name, Email & Password field are empty then do
 // not  move to the next page once submit has been clicked

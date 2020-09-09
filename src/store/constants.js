@@ -1,0 +1,2 @@
+export const SUBMIT_USER_DETAILS =
+  "SUBMIT_USER_DETAILS";

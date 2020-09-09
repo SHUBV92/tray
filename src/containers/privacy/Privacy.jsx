@@ -1,11 +1,11 @@
 import React from "react";
 import { Container } from "./Privacy.styles.jsx";
-import Button from "../../components/button/Button";
-import Input from "../../components/input/Input.jsx";
+import Button from "../../components/Button/Button";
+import Input from "../../components/Input/Input.jsx";
 
 const Privacy = () => {
   const input = [
-    { type: "checkbox", route: "/done", required: "required" },
+    { type: "checkbox", route: "/done", required: true },
   ];
   return (
     <Container>

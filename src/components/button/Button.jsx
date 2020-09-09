@@ -2,30 +2,16 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 const Button = (props) => {
-  const {
-    onClicked,
-    submitUserDetails,
-    name,
-    email,
-    role
-  } = props;
+  const { submit } = props;
 
   const history = useHistory();
-
 
   return (
     <div>
       <button
         onClick={() => {
-          // {name !== "" && email !== "" && role !== ""
-            // ?pp
-             history.push(props.route)
-            // : console.log(
-                // "The Input field is empty"
-              // )}
-              onClicked()
-          // getUserDetails();
-          // submitUserDetails();
+          history.push(props.route);
+          submit((props)=>props.userDetails)
         }}
       >
         {props.label}

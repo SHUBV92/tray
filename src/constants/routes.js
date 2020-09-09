@@ -1,7 +1,7 @@
 import React from "react"
-import User from "../containers/user/User.jsx"
-import Privacy from "../containers/privacy/Privacy.jsx"
-import Done from "../containers/done/Done.jsx"
+import User from "../containers/User/User.jsx"
+import Privacy from "../containers/Privacy/Privacy.jsx"
+import Done from "../containers/Done/Done.jsx"
 
 export const baseRoutes = [
     {

@@ -2,7 +2,8 @@ import React from "react";
 import { Container } from "./Done.styles.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import Button from "../../components/button/Button.jsx";
+import Button from "../../components/Button/Button.jsx";
+import { connect } from "react-redux";
 
 const Done = (props) => {
   return (
@@ -17,9 +18,16 @@ const Done = (props) => {
         should have recieved an email from us
         already!
       </h3>
-      {console.log(props.userDetails)}
+      {console.log(props)}
     </Container>
   );
 };
 
-export default Done;
+const mapStateToProps = (state) => ({
+  userDetails: state.userDetails,
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Done);
